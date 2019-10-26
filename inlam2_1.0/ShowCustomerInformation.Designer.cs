@@ -45,7 +45,7 @@
             this.labelCountry = new System.Windows.Forms.Label();
             this.labelPhone = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.btnReturn = new System.Windows.Forms.Button();
+            this.btnBookARoom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tBoxCustomerID
@@ -185,21 +185,22 @@
             this.button1.Text = "Check reservation";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // btnReturn
+            // btnBookARoom
             // 
-            this.btnReturn.Location = new System.Drawing.Point(406, 231);
-            this.btnReturn.Name = "btnReturn";
-            this.btnReturn.Size = new System.Drawing.Size(125, 29);
-            this.btnReturn.TabIndex = 22;
-            this.btnReturn.Text = "Return";
-            this.btnReturn.UseVisualStyleBackColor = true;
+            this.btnBookARoom.Location = new System.Drawing.Point(406, 231);
+            this.btnBookARoom.Name = "btnBookARoom";
+            this.btnBookARoom.Size = new System.Drawing.Size(125, 29);
+            this.btnBookARoom.TabIndex = 22;
+            this.btnBookARoom.Text = "Book a room";
+            this.btnBookARoom.UseVisualStyleBackColor = true;
+            this.btnBookARoom.Click += new System.EventHandler(this.btnBookARoom_Click);
             // 
             // ShowCustomerInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(624, 279);
-            this.Controls.Add(this.btnReturn);
+            this.Controls.Add(this.btnBookARoom);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labelPhone);
             this.Controls.Add(this.labelCountry);
@@ -243,6 +244,6 @@
         private System.Windows.Forms.Label labelCountry;
         private System.Windows.Forms.Label labelPhone;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnReturn;
+        private System.Windows.Forms.Button btnBookARoom;
     }
 }

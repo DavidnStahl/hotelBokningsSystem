@@ -38,5 +38,13 @@ namespace inlam2_1._0
             tBoxCountry.Text = selectedCustomer.Country.ToString();
             tBoxPhone.Text = selectedCustomer.Phone.ToString();
         }
+
+        private void btnBookARoom_Click(object sender, EventArgs e)
+        {
+            using (var subform = new BookARoomForm(mainForm))
+            {
+                subform.ShowDialog();
+            }
+        }
     }
 }
