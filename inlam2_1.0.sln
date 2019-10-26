@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29403.142
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inlam2_1.0", "inlam2_1.0\inlam2_1.0.csproj", "{C75A8CBE-6986-4927-A0A2-9AC91675DCDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C75A8CBE-6986-4927-A0A2-9AC91675DCDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C75A8CBE-6986-4927-A0A2-9AC91675DCDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C75A8CBE-6986-4927-A0A2-9AC91675DCDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C75A8CBE-6986-4927-A0A2-9AC91675DCDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4F542C00-DFB9-4A70-9700-DAE2152A903C}
+	EndGlobalSection
+EndGlobal
