@@ -77,12 +77,9 @@ namespace inlam2_1._0
                     else if(cBoxNumberOfPeople.SelectedIndex <= -1)
                     {
                         lstAvaibleRooms.Items.Add(roomTypes.RoomDescription);
-                    }
-                    
-                } 
-                
-            }
-            
+                    }                    
+                }                
+            }     
         }
         public List<Room> GetAvaibleRooms(List<Room> AllRoomTypes, List<Room> roomID)
         {
@@ -98,7 +95,6 @@ namespace inlam2_1._0
                         avaibleRooms.Remove(room);
                         continue;
                     }
-
                 }
             }
             return avaibleRooms;
@@ -118,8 +114,12 @@ namespace inlam2_1._0
 
         private void btnBookTheRoom_Click(object sender, EventArgs e)
         {
+
             var selectedRoomType = GetRoomType(lstAvaibleRooms.Text);
             int days = Convert.ToInt32((checkOutEndDate.Value - CheckInStartDate.Value).TotalDays);
+            
+            var bookingDate = DateTime.Today;
+            var lastDayToPay = bookingDate.AddDays(10);
 
             using (HotelDBContext context = new HotelDBContext())
             {
@@ -132,7 +132,9 @@ namespace inlam2_1._0
                 Payment payment = new Payment
                 {
                     PaymentAmount = selectedRoomType.PricePerDay * days,
-                    Paid = "No"
+                    Paid = "No",
+                    BookingDate = DateTime.Today,
+                    LastDayToPay = lastDayToPay
 
                 };
                 Reservation reservation = new Reservation

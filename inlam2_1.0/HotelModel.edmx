@@ -25,6 +25,8 @@
           <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="PaymentAmount" Type="money" Nullable="false" />
           <Property Name="Paid" Type="varchar" MaxLength="5" Nullable="false" />
+          <Property Name="BookingDate" Type="smalldatetime" />
+          <Property Name="LastDayToPay" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="ReservationRooms">
           <Key>
@@ -174,6 +176,8 @@
           <Property Name="PaymentAmount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Paid" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Reservations" Relationship="Self.FK_Reservations_Payments" FromRole="Payments" ToRole="Reservations" />
+          <Property Name="BookingDate" Type="DateTime" Precision="0" />
+          <Property Name="LastDayToPay" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="ReservationRoom">
           <Key>
@@ -328,6 +332,8 @@
           <EntitySetMapping Name="Payments">
             <EntityTypeMapping TypeName="HotelDBModel.Payment">
               <MappingFragment StoreEntitySet="Payments">
+                <ScalarProperty Name="LastDayToPay" ColumnName="LastDayToPay" />
+                <ScalarProperty Name="BookingDate" ColumnName="BookingDate" />
                 <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
                 <ScalarProperty Name="PaymentAmount" ColumnName="PaymentAmount" />
                 <ScalarProperty Name="Paid" ColumnName="Paid" />

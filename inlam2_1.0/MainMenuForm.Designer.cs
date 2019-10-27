@@ -36,13 +36,15 @@
             this.btnBookARoom = new System.Windows.Forms.Button();
             this.btnCheckPayments = new System.Windows.Forms.Button();
             this.btnHandleCustomers = new System.Windows.Forms.Button();
+            this.btnPay = new System.Windows.Forms.Button();
+            this.btnDeleteCustomer = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tBoxSearchCustomers
             // 
-            this.tBoxSearchCustomers.Location = new System.Drawing.Point(395, 24);
+            this.tBoxSearchCustomers.Location = new System.Drawing.Point(215, 24);
             this.tBoxSearchCustomers.Name = "tBoxSearchCustomers";
-            this.tBoxSearchCustomers.Size = new System.Drawing.Size(186, 22);
+            this.tBoxSearchCustomers.Size = new System.Drawing.Size(366, 22);
             this.tBoxSearchCustomers.TabIndex = 0;
             // 
             // btnSearchCustomers
@@ -59,16 +61,16 @@
             // 
             this.listBoxSearchedCustomers.FormattingEnabled = true;
             this.listBoxSearchedCustomers.ItemHeight = 16;
-            this.listBoxSearchedCustomers.Location = new System.Drawing.Point(395, 66);
+            this.listBoxSearchedCustomers.Location = new System.Drawing.Point(215, 66);
             this.listBoxSearchedCustomers.Name = "listBoxSearchedCustomers";
-            this.listBoxSearchedCustomers.Size = new System.Drawing.Size(339, 244);
+            this.listBoxSearchedCustomers.Size = new System.Drawing.Size(519, 244);
             this.listBoxSearchedCustomers.TabIndex = 2;
             // 
             // btnShowCustomerInformation
             // 
-            this.btnShowCustomerInformation.Location = new System.Drawing.Point(395, 329);
+            this.btnShowCustomerInformation.Location = new System.Drawing.Point(225, 325);
             this.btnShowCustomerInformation.Name = "btnShowCustomerInformation";
-            this.btnShowCustomerInformation.Size = new System.Drawing.Size(157, 27);
+            this.btnShowCustomerInformation.Size = new System.Drawing.Size(157, 36);
             this.btnShowCustomerInformation.TabIndex = 3;
             this.btnShowCustomerInformation.Text = "Show Customer info";
             this.btnShowCustomerInformation.UseVisualStyleBackColor = true;
@@ -76,7 +78,7 @@
             // 
             // btnAddCustomer
             // 
-            this.btnAddCustomer.Location = new System.Drawing.Point(12, 24);
+            this.btnAddCustomer.Location = new System.Drawing.Point(12, 66);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.Size = new System.Drawing.Size(160, 36);
             this.btnAddCustomer.TabIndex = 4;
@@ -86,9 +88,9 @@
             // 
             // btnBookARoom
             // 
-            this.btnBookARoom.Location = new System.Drawing.Point(190, 24);
+            this.btnBookARoom.Location = new System.Drawing.Point(573, 325);
             this.btnBookARoom.Name = "btnBookARoom";
-            this.btnBookARoom.Size = new System.Drawing.Size(143, 36);
+            this.btnBookARoom.Size = new System.Drawing.Size(161, 36);
             this.btnBookARoom.TabIndex = 5;
             this.btnBookARoom.Text = "Book a room";
             this.btnBookARoom.UseVisualStyleBackColor = true;
@@ -96,27 +98,49 @@
             // 
             // btnCheckPayments
             // 
-            this.btnCheckPayments.Location = new System.Drawing.Point(12, 81);
+            this.btnCheckPayments.Location = new System.Drawing.Point(0, 401);
             this.btnCheckPayments.Name = "btnCheckPayments";
             this.btnCheckPayments.Size = new System.Drawing.Size(160, 37);
             this.btnCheckPayments.TabIndex = 6;
             this.btnCheckPayments.Text = "Check Payments";
             this.btnCheckPayments.UseVisualStyleBackColor = true;
+            this.btnCheckPayments.Click += new System.EventHandler(this.btnCheckPayments_Click);
             // 
             // btnHandleCustomers
             // 
-            this.btnHandleCustomers.Location = new System.Drawing.Point(190, 81);
+            this.btnHandleCustomers.Location = new System.Drawing.Point(12, 122);
             this.btnHandleCustomers.Name = "btnHandleCustomers";
-            this.btnHandleCustomers.Size = new System.Drawing.Size(143, 37);
+            this.btnHandleCustomers.Size = new System.Drawing.Size(160, 37);
             this.btnHandleCustomers.TabIndex = 7;
             this.btnHandleCustomers.Text = "Handle Customers";
             this.btnHandleCustomers.UseVisualStyleBackColor = true;
+            // 
+            // btnPay
+            // 
+            this.btnPay.Location = new System.Drawing.Point(0, 342);
+            this.btnPay.Name = "btnPay";
+            this.btnPay.Size = new System.Drawing.Size(160, 39);
+            this.btnPay.TabIndex = 8;
+            this.btnPay.Text = "Customer Payed";
+            this.btnPay.UseVisualStyleBackColor = true;
+            this.btnPay.Click += new System.EventHandler(this.btnPay_Click);
+            // 
+            // btnDeleteCustomer
+            // 
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(12, 194);
+            this.btnDeleteCustomer.Name = "btnDeleteCustomer";
+            this.btnDeleteCustomer.Size = new System.Drawing.Size(160, 40);
+            this.btnDeleteCustomer.TabIndex = 9;
+            this.btnDeleteCustomer.Text = "Delete Customer";
+            this.btnDeleteCustomer.UseVisualStyleBackColor = true;
             // 
             // MainMenuForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnDeleteCustomer);
+            this.Controls.Add(this.btnPay);
             this.Controls.Add(this.btnHandleCustomers);
             this.Controls.Add(this.btnCheckPayments);
             this.Controls.Add(this.btnBookARoom);
@@ -142,6 +166,8 @@
         private System.Windows.Forms.Button btnBookARoom;
         private System.Windows.Forms.Button btnCheckPayments;
         private System.Windows.Forms.Button btnHandleCustomers;
+        private System.Windows.Forms.Button btnPay;
+        private System.Windows.Forms.Button btnDeleteCustomer;
     }
 }
 

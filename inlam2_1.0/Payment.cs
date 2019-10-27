@@ -23,7 +23,9 @@ namespace inlam2_1._0
         public int PaymentID { get; set; }
         public decimal PaymentAmount { get; set; }
         public string Paid { get; set; }
-    
+        public System.DateTime BookingDate { get; set; }
+        public System.DateTime LastDayToPay { get; set; }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reservation> Reservations { get; set; }
     }
