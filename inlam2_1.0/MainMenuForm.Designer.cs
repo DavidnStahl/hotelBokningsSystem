@@ -92,6 +92,7 @@
             this.btnBookARoom.TabIndex = 5;
             this.btnBookARoom.Text = "Book a room";
             this.btnBookARoom.UseVisualStyleBackColor = true;
+            this.btnBookARoom.Click += new System.EventHandler(this.btnBookARoom_Click);
             // 
             // btnCheckPayments
             // 

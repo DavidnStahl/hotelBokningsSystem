@@ -28,97 +28,114 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnSearchAvaibleRooms = new System.Windows.Forms.Button();
             this.cBoxNumberOfPeople = new System.Windows.Forms.ComboBox();
-            this.cBoxNumberOfNights = new System.Windows.Forms.ComboBox();
             this.labelNumberOfPeople = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LabelDate = new System.Windows.Forms.Label();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.LabelCheckInDate = new System.Windows.Forms.Label();
+            this.lstAvaibleRooms = new System.Windows.Forms.ListBox();
+            this.CheckInStartDate = new System.Windows.Forms.DateTimePicker();
+            this.checkOutEndDate = new System.Windows.Forms.DateTimePicker();
+            this.labelCheckOutDate = new System.Windows.Forms.Label();
+            this.btnBookTheRoom = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(130, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 22);
-            this.textBox1.TabIndex = 0;
             // 
             // btnSearchAvaibleRooms
             // 
-            this.btnSearchAvaibleRooms.Location = new System.Drawing.Point(389, 83);
+            this.btnSearchAvaibleRooms.Location = new System.Drawing.Point(299, 120);
             this.btnSearchAvaibleRooms.Name = "btnSearchAvaibleRooms";
             this.btnSearchAvaibleRooms.Size = new System.Drawing.Size(198, 23);
             this.btnSearchAvaibleRooms.TabIndex = 1;
             this.btnSearchAvaibleRooms.Text = "Search For Avaible Rooms";
             this.btnSearchAvaibleRooms.UseVisualStyleBackColor = true;
+            this.btnSearchAvaibleRooms.Click += new System.EventHandler(this.btnSearchAvaibleRooms_Click);
             // 
             // cBoxNumberOfPeople
             // 
+            this.cBoxNumberOfPeople.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cBoxNumberOfPeople.FormattingEnabled = true;
-            this.cBoxNumberOfPeople.Location = new System.Drawing.Point(175, 27);
+            this.cBoxNumberOfPeople.Location = new System.Drawing.Point(143, 116);
             this.cBoxNumberOfPeople.Name = "cBoxNumberOfPeople";
             this.cBoxNumberOfPeople.Size = new System.Drawing.Size(121, 24);
             this.cBoxNumberOfPeople.TabIndex = 2;
             // 
-            // cBoxNumberOfNights
-            // 
-            this.cBoxNumberOfNights.FormattingEnabled = true;
-            this.cBoxNumberOfNights.Location = new System.Drawing.Point(466, 27);
-            this.cBoxNumberOfNights.Name = "cBoxNumberOfNights";
-            this.cBoxNumberOfNights.Size = new System.Drawing.Size(121, 24);
-            this.cBoxNumberOfNights.TabIndex = 3;
-            // 
             // labelNumberOfPeople
             // 
             this.labelNumberOfPeople.AutoSize = true;
-            this.labelNumberOfPeople.Location = new System.Drawing.Point(12, 32);
+            this.labelNumberOfPeople.Location = new System.Drawing.Point(9, 123);
             this.labelNumberOfPeople.Name = "labelNumberOfPeople";
             this.labelNumberOfPeople.Size = new System.Drawing.Size(125, 17);
             this.labelNumberOfPeople.TabIndex = 4;
             this.labelNumberOfPeople.Text = "How many People:";
             // 
-            // label2
+            // LabelCheckInDate
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(318, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 17);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Number of Nights:";
+            this.LabelCheckInDate.AutoSize = true;
+            this.LabelCheckInDate.Location = new System.Drawing.Point(9, 9);
+            this.LabelCheckInDate.Name = "LabelCheckInDate";
+            this.LabelCheckInDate.Size = new System.Drawing.Size(96, 17);
+            this.LabelCheckInDate.TabIndex = 6;
+            this.LabelCheckInDate.Text = "Checkin Date:";
             // 
-            // LabelDate
+            // lstAvaibleRooms
             // 
-            this.LabelDate.AutoSize = true;
-            this.LabelDate.Location = new System.Drawing.Point(82, 87);
-            this.LabelDate.Name = "LabelDate";
-            this.LabelDate.Size = new System.Drawing.Size(42, 17);
-            this.LabelDate.TabIndex = 6;
-            this.LabelDate.Text = "Date:";
+            this.lstAvaibleRooms.FormattingEnabled = true;
+            this.lstAvaibleRooms.ItemHeight = 16;
+            this.lstAvaibleRooms.Location = new System.Drawing.Point(12, 161);
+            this.lstAvaibleRooms.Name = "lstAvaibleRooms";
+            this.lstAvaibleRooms.Size = new System.Drawing.Size(485, 180);
+            this.lstAvaibleRooms.TabIndex = 7;
             // 
-            // listBox1
+            // CheckInStartDate
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(130, 156);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(457, 228);
-            this.listBox1.TabIndex = 7;
+            this.CheckInStartDate.CustomFormat = "yyyy-MM-dd";
+            this.CheckInStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.CheckInStartDate.Location = new System.Drawing.Point(123, 4);
+            this.CheckInStartDate.Name = "CheckInStartDate";
+            this.CheckInStartDate.Size = new System.Drawing.Size(111, 22);
+            this.CheckInStartDate.TabIndex = 8;
+            // 
+            // checkOutEndDate
+            // 
+            this.checkOutEndDate.CustomFormat = "yyyy-MM-dd";
+            this.checkOutEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.checkOutEndDate.Location = new System.Drawing.Point(123, 60);
+            this.checkOutEndDate.Name = "checkOutEndDate";
+            this.checkOutEndDate.Size = new System.Drawing.Size(111, 22);
+            this.checkOutEndDate.TabIndex = 9;
+            // 
+            // labelCheckOutDate
+            // 
+            this.labelCheckOutDate.AutoSize = true;
+            this.labelCheckOutDate.Location = new System.Drawing.Point(9, 60);
+            this.labelCheckOutDate.Name = "labelCheckOutDate";
+            this.labelCheckOutDate.Size = new System.Drawing.Size(105, 17);
+            this.labelCheckOutDate.TabIndex = 10;
+            this.labelCheckOutDate.Text = "Checkout Date:";
+            // 
+            // btnBookTheRoom
+            // 
+            this.btnBookTheRoom.Location = new System.Drawing.Point(12, 369);
+            this.btnBookTheRoom.Name = "btnBookTheRoom";
+            this.btnBookTheRoom.Size = new System.Drawing.Size(163, 30);
+            this.btnBookTheRoom.TabIndex = 11;
+            this.btnBookTheRoom.Text = "Book selected room";
+            this.btnBookTheRoom.UseVisualStyleBackColor = true;
+            this.btnBookTheRoom.Click += new System.EventHandler(this.btnBookTheRoom_Click);
             // 
             // BookARoomForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(999, 450);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.LabelDate);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btnBookTheRoom);
+            this.Controls.Add(this.labelCheckOutDate);
+            this.Controls.Add(this.checkOutEndDate);
+            this.Controls.Add(this.CheckInStartDate);
+            this.Controls.Add(this.lstAvaibleRooms);
+            this.Controls.Add(this.LabelCheckInDate);
             this.Controls.Add(this.labelNumberOfPeople);
-            this.Controls.Add(this.cBoxNumberOfNights);
             this.Controls.Add(this.cBoxNumberOfPeople);
             this.Controls.Add(this.btnSearchAvaibleRooms);
-            this.Controls.Add(this.textBox1);
             this.Name = "BookARoomForm";
             this.Text = "BookARoomForm";
             this.ResumeLayout(false);
@@ -127,14 +144,14 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnSearchAvaibleRooms;
         private System.Windows.Forms.ComboBox cBoxNumberOfPeople;
-        private System.Windows.Forms.ComboBox cBoxNumberOfNights;
         private System.Windows.Forms.Label labelNumberOfPeople;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label LabelDate;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Label LabelCheckInDate;
+        private System.Windows.Forms.ListBox lstAvaibleRooms;
+        private System.Windows.Forms.DateTimePicker CheckInStartDate;
+        private System.Windows.Forms.DateTimePicker checkOutEndDate;
+        private System.Windows.Forms.Label labelCheckOutDate;
+        private System.Windows.Forms.Button btnBookTheRoom;
     }
 }

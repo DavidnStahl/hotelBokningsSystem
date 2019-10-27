@@ -23,6 +23,7 @@ namespace inlam2_1._0
         public int RoomTypeID { get; set; }
         public int RoomSize { get; set; }
         public string RoomDescription { get; set; }
+        public decimal PricePerDay { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Room> Rooms { get; set; }

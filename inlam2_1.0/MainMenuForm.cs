@@ -16,6 +16,16 @@ namespace inlam2_1._0
         {
             InitializeComponent();
         }
+        public int GetSelectedCustomerID()
+        {
+            using (HotelDBContext context = new HotelDBContext())
+            {
+                Customer customer = context.Customers.FirstOrDefault(c => c.LastName == listBoxSearchedCustomers.SelectedItem.ToString());
+                return customer.CustomerID;
+            }
+            
+        }
+
 
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
@@ -48,6 +58,14 @@ namespace inlam2_1._0
         private void btnShowCustomerInformation_Click(object sender, EventArgs e)
         {
             using (var subform = new ShowCustomerInformation(this))
+            {
+                subform.ShowDialog();
+            }
+        }
+
+        private void btnBookARoom_Click(object sender, EventArgs e)
+        {
+            using (var subform = new BookARoomForm(this))
             {
                 subform.ShowDialog();
             }

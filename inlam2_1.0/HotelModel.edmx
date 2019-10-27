@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="HotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="HotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Customers">
           <Key>
             <PropertyRef Name="CustomerID" />
@@ -38,8 +38,8 @@
             <PropertyRef Name="ReservationID" />
           </Key>
           <Property Name="ReservationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="StartDate" Type="smalldatetime" Nullable="false" />
-          <Property Name="EndDate" Type="smalldatetime" Nullable="false" />
+          <Property Name="StartDate" Type="date" Nullable="false" />
+          <Property Name="EndDate" Type="date" Nullable="false" />
           <Property Name="CustomerID" Type="int" Nullable="false" />
           <Property Name="ReservationRoomsID" Type="int" Nullable="false" />
           <Property Name="PaymentID" Type="int" Nullable="false" />
@@ -58,6 +58,7 @@
           <Property Name="RoomTypeID" Type="int" Nullable="false" />
           <Property Name="RoomSize" Type="int" Nullable="false" />
           <Property Name="RoomDescription" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PricePerDay" Type="money" Nullable="false" />
         </EntityType>
         <Association Name="FK_ReservationRooms_Rooms1">
           <End Role="Rooms" Type="Self.Rooms" Multiplicity="1" />
@@ -147,8 +148,7 @@
             <End Role="Rooms" EntitySet="Rooms" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="HotelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -215,6 +215,7 @@
           <Property Name="RoomSize" Type="Int32" Nullable="false" />
           <Property Name="RoomDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Rooms" Relationship="Self.FK_Rooms_RoomTypes" FromRole="RoomTypes" ToRole="Rooms" />
+          <Property Name="PricePerDay" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
         </EntityType>
         <Association Name="FK_Reservations_Customers">
           <End Role="Customers" Type="Self.Customer" Multiplicity="1" />
@@ -364,6 +365,7 @@
           <EntitySetMapping Name="RoomTypes">
             <EntityTypeMapping TypeName="HotelDBModel.RoomType">
               <MappingFragment StoreEntitySet="RoomTypes">
+                <ScalarProperty Name="PricePerDay" ColumnName="PricePerDay" />
                 <ScalarProperty Name="RoomTypeID" ColumnName="RoomTypeID" />
                 <ScalarProperty Name="RoomSize" ColumnName="RoomSize" />
                 <ScalarProperty Name="RoomDescription" ColumnName="RoomDescription" />
