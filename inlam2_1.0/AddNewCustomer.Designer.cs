@@ -48,6 +48,7 @@
             // tBoxFirstName
             // 
             this.tBoxFirstName.Location = new System.Drawing.Point(123, 36);
+            this.tBoxFirstName.MaxLength = 100;
             this.tBoxFirstName.Name = "tBoxFirstName";
             this.tBoxFirstName.Size = new System.Drawing.Size(236, 22);
             this.tBoxFirstName.TabIndex = 0;
@@ -55,6 +56,7 @@
             // tBoxLastName
             // 
             this.tBoxLastName.Location = new System.Drawing.Point(123, 80);
+            this.tBoxLastName.MaxLength = 100;
             this.tBoxLastName.Name = "tBoxLastName";
             this.tBoxLastName.Size = new System.Drawing.Size(236, 22);
             this.tBoxLastName.TabIndex = 1;
@@ -62,6 +64,7 @@
             // tBoxAddress
             // 
             this.tBoxAddress.Location = new System.Drawing.Point(123, 130);
+            this.tBoxAddress.MaxLength = 100;
             this.tBoxAddress.Name = "tBoxAddress";
             this.tBoxAddress.Size = new System.Drawing.Size(236, 22);
             this.tBoxAddress.TabIndex = 2;
@@ -69,6 +72,7 @@
             // tBoxPostalCode
             // 
             this.tBoxPostalCode.Location = new System.Drawing.Point(123, 179);
+            this.tBoxPostalCode.MaxLength = 50;
             this.tBoxPostalCode.Name = "tBoxPostalCode";
             this.tBoxPostalCode.Size = new System.Drawing.Size(236, 22);
             this.tBoxPostalCode.TabIndex = 3;
@@ -76,6 +80,7 @@
             // tBoxCity
             // 
             this.tBoxCity.Location = new System.Drawing.Point(123, 229);
+            this.tBoxCity.MaxLength = 50;
             this.tBoxCity.Name = "tBoxCity";
             this.tBoxCity.Size = new System.Drawing.Size(236, 22);
             this.tBoxCity.TabIndex = 4;
@@ -83,6 +88,7 @@
             // tBoxCountry
             // 
             this.tBoxCountry.Location = new System.Drawing.Point(123, 278);
+            this.tBoxCountry.MaxLength = 50;
             this.tBoxCountry.Name = "tBoxCountry";
             this.tBoxCountry.Size = new System.Drawing.Size(236, 22);
             this.tBoxCountry.TabIndex = 5;
@@ -90,6 +96,7 @@
             // tBoxPhone
             // 
             this.tBoxPhone.Location = new System.Drawing.Point(123, 325);
+            this.tBoxPhone.MaxLength = 50;
             this.tBoxPhone.Name = "tBoxPhone";
             this.tBoxPhone.Size = new System.Drawing.Size(236, 22);
             this.tBoxPhone.TabIndex = 6;

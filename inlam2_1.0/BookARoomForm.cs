@@ -32,6 +32,11 @@ namespace inlam2_1._0
         {            
             var startDate = CheckInStartDate.Value.Date;
             var endDate = checkOutEndDate.Value.Date;
+            if(startDate == endDate || startDate > endDate || startDate < DateTime.Now)
+            {
+                MessageBox.Show("Something wen´t wrong when you chosed dates");
+                return;
+            }
             var unavaibleRooms = new List<Room>();
             lstAvaibleRooms.Items.Clear();
             using (HotelDBContext context = new HotelDBContext())
@@ -114,46 +119,53 @@ namespace inlam2_1._0
 
         private void btnBookTheRoom_Click(object sender, EventArgs e)
         {
-
-            var selectedRoomType = GetRoomType(lstAvaibleRooms.Text);
-            int days = Convert.ToInt32((checkOutEndDate.Value - CheckInStartDate.Value).TotalDays);
-            
-            var bookingDate = DateTime.Today;
-            var lastDayToPay = bookingDate.AddDays(10);
-
-            using (HotelDBContext context = new HotelDBContext())
+            if(lstAvaibleRooms.SelectedIndex > -1)
             {
-                Room room = context.Rooms.FirstOrDefault(r => r.RoomTypeID == selectedRoomType.RoomTypeID);
+                var selectedRoomType = GetRoomType(lstAvaibleRooms.Text);
+                int days = Convert.ToInt32((checkOutEndDate.Value - CheckInStartDate.Value).TotalDays);
 
-                ReservationRoom reservationRoom = new ReservationRoom
+                var bookingDate = DateTime.Today;
+                var lastDayToPay = bookingDate.AddDays(10);
+
+                using (HotelDBContext context = new HotelDBContext())
                 {
-                    RoomID = room.RoomID
-                };
-                Payment payment = new Payment
-                {
-                    PaymentAmount = selectedRoomType.PricePerDay * days,
-                    Paid = "No",
-                    BookingDate = DateTime.Today,
-                    LastDayToPay = lastDayToPay
+                    Room room = context.Rooms.FirstOrDefault(r => r.RoomTypeID == selectedRoomType.RoomTypeID);
 
-                };
-                Reservation reservation = new Reservation
-                {
-                    StartDate = CheckInStartDate.Value,
-                    EndDate = checkOutEndDate.Value,
-                    CustomerID = mainForm.GetSelectedCustomerID(),
-                    ReservationRoomsID = reservationRoom.ReservationRoomsID,
-                    PaymentID = payment.PaymentID
-                    
+                    ReservationRoom reservationRoom = new ReservationRoom
+                    {
+                        RoomID = room.RoomID
+                    };
+                    Payment payment = new Payment
+                    {
+                        PaymentAmount = selectedRoomType.PricePerDay * days,
+                        Paid = "No",
+                        BookingDate = DateTime.Today,
+                        LastDayToPay = lastDayToPay
 
-                };
+                    };
+                    Reservation reservation = new Reservation
+                    {
+                        StartDate = CheckInStartDate.Value,
+                        EndDate = checkOutEndDate.Value,
+                        CustomerID = mainForm.GetSelectedCustomerID(),
+                        ReservationRoomsID = reservationRoom.ReservationRoomsID,
+                        PaymentID = payment.PaymentID
 
-                context.ReservationRooms.Add(reservationRoom);
-                context.Payments.Add(payment);
-                context.Reservations.Add(reservation);
-                context.SaveChanges();
-                this.Close();
+
+                    };
+
+                    context.ReservationRooms.Add(reservationRoom);
+                    context.Payments.Add(payment);
+                    context.Reservations.Add(reservation);
+                    context.SaveChanges();
+                    this.Close();
+                }
             }
+            else
+            {
+                MessageBox.Show("You have not selected a room");
+            }
+            
         }
     }
 }

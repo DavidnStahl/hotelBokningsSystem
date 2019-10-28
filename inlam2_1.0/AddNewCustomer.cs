@@ -22,23 +22,19 @@ namespace inlam2_1._0
 
         private void btnAddNewCustomer_Click(object sender, EventArgs e)
         {
-            using(HotelDBContext context = new HotelDBContext())
+            if (tBoxFirstName.Text.Length >= 1 && tBoxLastName.Text.Length >= 1 && tBoxAddress.Text.Length >= 1 &&
+                tBoxPostalCode.Text.Length >= 1 && tBoxCity.Text.Length >= 1 && tBoxCountry.Text.Length >= 1 && tBoxPhone.Text.Length >= 1)
             {
-                Customer customer = new Customer
-                {
-                    FirstName = tBoxFirstName.Text,
-                    LastName = tBoxLastName.Text,
-                    Address = tBoxAddress.Text,
-                    PostalCode = tBoxPostalCode.Text,
-                    City = tBoxCity.Text,
-                    Country = tBoxCountry.Text,
-                    Phone = tBoxPhone.Text
+                var dbm = new DBmanager();
+                dbm.AddNewCustomer(tBoxFirstName.Text, tBoxLastName.Text, tBoxAddress.Text, tBoxPostalCode.Text, tBoxCity.Text, tBoxCountry.Text, tBoxPhone.Text);
 
-                };
-                context.Customers.Add(customer);
-                context.SaveChanges();
                 this.Close();
             }
+            else
+            {
+                MessageBox.Show("You need to put information into every textbox");
+            }
+            
         }
     }
 }

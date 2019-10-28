@@ -13,6 +13,51 @@ namespace inlam2_1._0
         {
 
         }
+        public void AddNewCustomer(string firstName, string lastName, string address, string postalCode, string city, string country, string phone)
+        {
+            using (HotelDBContext context = new HotelDBContext())
+            {
+                Customer customer = new Customer
+                {
+                    FirstName = firstName,
+                    LastName = lastName,
+                    Address = address,
+                    PostalCode = postalCode,
+                    City = city,
+                    Country = country,
+                    Phone = phone
+
+                };
+                context.Customers.Add(customer);
+                context.SaveChanges();
+            }
+        }
+        public List<string> GetCustomerReservationInformationToFill(int selectedCustomerID)
+        {
+            var reservationInfoList = new List<string>();
+            using (HotelDBContext context = new HotelDBContext())
+            {
+                var customer = context.Customers.SingleOrDefault(r => r.CustomerID == selectedCustomerID);
+                var reservation = context.Reservations.SingleOrDefault(r => r.CustomerID == customer.CustomerID);
+                if(reservation == null)
+                {
+                    return null;
+                }
+                var reservationRoom = context.ReservationRooms.SingleOrDefault(r => r.ReservationRoomsID == reservation.ReservationRoomsID);
+                
+                var room = context.Rooms.SingleOrDefault(r => r.RoomID == reservationRoom.RoomID);
+                var roomType = context.RoomTypes.SingleOrDefault(r => r.RoomTypeID == room.RoomTypeID);
+                var payment = context.Payments.SingleOrDefault(r => r.PaymentID == reservation.PaymentID);
+
+                reservationInfoList.Add(roomType.RoomDescription);
+                reservationInfoList.Add(room.RoomID.ToString());
+                reservationInfoList.Add(reservation.StartDate.ToString());
+                reservationInfoList.Add(reservation.EndDate.ToString()); ;
+                reservationInfoList.Add(payment.PaymentAmount.ToString());
+                reservationInfoList.Add(payment.Paid);
+            }
+            return reservationInfoList;
+        }
         public void UpdateCustomerInformation(int customerID, string firstName,string LastName, string address,string postalCode, string city,
             string country,string phone)
         {

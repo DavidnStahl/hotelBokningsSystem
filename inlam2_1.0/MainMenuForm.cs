@@ -47,47 +47,113 @@ namespace inlam2_1._0
 
         private void btnShowCustomerInformation_Click(object sender, EventArgs e)
         {
-            using (var subform = new ShowCustomerInformation(this))
+            if(listBoxSearchedCustomers.SelectedIndex > -1)
             {
-                subform.ShowDialog();
+                using (var subform = new ShowCustomerInformation(this))
+                {
+                    subform.ShowDialog();
+                }
             }
+            else
+            {
+                MessageBox.Show("You need to choose customer first");
+            }
+            
         }
 
         private void btnBookARoom_Click(object sender, EventArgs e)
         {
-            using (var subform = new BookARoomForm(this))
+            if (listBoxSearchedCustomers.SelectedIndex > -1)
             {
-                subform.ShowDialog();
+                using (var subform = new BookARoomForm(this))
+                {
+                    subform.ShowDialog();
+                }
             }
+            else
+            {
+                MessageBox.Show("You need to choose customer first");
+            }
+
         }
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            var customerID = GetSelectedCustomerID();
+            if (listBoxSearchedCustomers.SelectedIndex > -1)
+            {
+                var customerID = GetSelectedCustomerID();
+                var dbm = new DBmanager();
+                dbm.UpdatePaymentCustomer(customerID);
+            }
+            else
+            {
+                MessageBox.Show("You need to choose customer first");
+            }
+            
+        }
+        public List<string> FillReservationInfo()
+        {
+            
+            var selectedCustomerID = GetSelectedCustomerID();
             var dbm = new DBmanager();
-            dbm.UpdatePaymentCustomer(customerID);
+            var reservationList = dbm.GetCustomerReservationInformationToFill(selectedCustomerID);
+            return reservationList;
         }
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
-            var customerID = GetSelectedCustomerID();
-            var cdbm = new DBmanager();
-            cdbm.DeleteCustomer(customerID);
+            if (listBoxSearchedCustomers.SelectedIndex > -1)
+            {
+                var customerID = GetSelectedCustomerID();
+                var cdbm = new DBmanager();
+                cdbm.DeleteCustomer(customerID);
+            }
+            else
+            {
+                MessageBox.Show("You need to choose customer first");
+            }
+            
         }
         private void btnHandleReservations_Click_1(object sender, EventArgs e)
         {
-            using (var subform = new HandleCustomerForm(this))
+            if (listBoxSearchedCustomers.SelectedIndex > -1)
             {
-                subform.ShowDialog();
+                var reservationList = FillReservationInfo();
+                if (reservationList == null)
+                {
+                    MessageBox.Show("Kunden har ingen bokning");
+
+                }
+                else if (reservationList != null)
+                {
+                    using (var subform = new HandleCustomerForm(this, reservationList))
+                    {
+                        subform.ShowDialog();
+                    }
+                }
             }
+            else
+            {
+                MessageBox.Show("You need to choose customer first");
+            }
+            
+            
         }
 
         private void btnUpdateCustomer_Click(object sender, EventArgs e)
         {
-            using (var subform = new UpdateCustomers(this))
+            if (listBoxSearchedCustomers.SelectedIndex > -1)
             {
-                subform.ShowDialog();
+                using (var subform = new UpdateCustomers(this))
+                {
+                    subform.ShowDialog();
+                }
             }
+            else
+            {
+                MessageBox.Show("You need to choose customer first");
+            }
+            
         }
     }
 }
