@@ -122,6 +122,7 @@
             this.btnDeleteCustomer.TabIndex = 9;
             this.btnDeleteCustomer.Text = "Delete Customer";
             this.btnDeleteCustomer.UseVisualStyleBackColor = true;
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
             // MainMenuForm
             // 

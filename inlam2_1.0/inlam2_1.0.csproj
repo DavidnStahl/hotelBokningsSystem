@@ -73,6 +73,7 @@
     <Compile Include="Customer.cs">
       <DependentUpon>HotelModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="CustomerDBmanager.cs" />
     <Compile Include="MainMenuForm.cs">
       <SubType>Form</SubType>
     </Compile>

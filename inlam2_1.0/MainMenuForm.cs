@@ -145,5 +145,12 @@ namespace inlam2_1._0
         {
             UpdatePaymentCustomer();
         }
+
+        private void btnDeleteCustomer_Click(object sender, EventArgs e)
+        {
+            var customerID = GetSelectedCustomerID();
+            var cdbm = new CustomerDBmanager();
+            cdbm.DeleteCustomer(customerID);
+        }
     }
 }

@@ -23,11 +23,8 @@ namespace inlam2_1._0
         public void FillIformation()
         {
             var selectedcustomerID = mainForm.GetSelectedCustomerID();
-            Customer selectedCustomer = new Customer();
-            using (HotelDBContext context = new HotelDBContext())
-            {
-                selectedCustomer = context.Customers.FirstOrDefault(c => c.CustomerID == selectedcustomerID);
-            }
+            var cdbm = new CustomerDBmanager();
+            var selectedCustomer = cdbm.GetCustomerInformation(selectedcustomerID);
 
             tBoxCustomerID.Text = selectedCustomer.CustomerID.ToString();
             tBoxFirstName.Text = selectedCustomer.FirstName.ToString();
