@@ -44,8 +44,6 @@
             this.labelCity = new System.Windows.Forms.Label();
             this.labelCountry = new System.Windows.Forms.Label();
             this.labelPhone = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.btnBookARoom = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // tBoxCustomerID
@@ -176,32 +174,11 @@
             this.labelPhone.TabIndex = 20;
             this.labelPhone.Text = "Phone:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(140, 231);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(139, 29);
-            this.button1.TabIndex = 21;
-            this.button1.Text = "Check reservation";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // btnBookARoom
-            // 
-            this.btnBookARoom.Location = new System.Drawing.Point(406, 231);
-            this.btnBookARoom.Name = "btnBookARoom";
-            this.btnBookARoom.Size = new System.Drawing.Size(125, 29);
-            this.btnBookARoom.TabIndex = 22;
-            this.btnBookARoom.Text = "Book a room";
-            this.btnBookARoom.UseVisualStyleBackColor = true;
-            this.btnBookARoom.Click += new System.EventHandler(this.btnBookARoom_Click);
-            // 
             // ShowCustomerInformation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(624, 279);
-            this.Controls.Add(this.btnBookARoom);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(624, 264);
             this.Controls.Add(this.labelPhone);
             this.Controls.Add(this.labelCountry);
             this.Controls.Add(this.labelCity);
@@ -243,7 +220,5 @@
         private System.Windows.Forms.Label labelCity;
         private System.Windows.Forms.Label labelCountry;
         private System.Windows.Forms.Label labelPhone;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button btnBookARoom;
     }
 }

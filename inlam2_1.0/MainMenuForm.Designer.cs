@@ -34,7 +34,6 @@
             this.btnShowCustomerInformation = new System.Windows.Forms.Button();
             this.btnAddCustomer = new System.Windows.Forms.Button();
             this.btnBookARoom = new System.Windows.Forms.Button();
-            this.btnCheckPayments = new System.Windows.Forms.Button();
             this.btnHandleCustomers = new System.Windows.Forms.Button();
             this.btnPay = new System.Windows.Forms.Button();
             this.btnDeleteCustomer = new System.Windows.Forms.Button();
@@ -63,12 +62,12 @@
             this.listBoxSearchedCustomers.ItemHeight = 16;
             this.listBoxSearchedCustomers.Location = new System.Drawing.Point(215, 66);
             this.listBoxSearchedCustomers.Name = "listBoxSearchedCustomers";
-            this.listBoxSearchedCustomers.Size = new System.Drawing.Size(519, 244);
+            this.listBoxSearchedCustomers.Size = new System.Drawing.Size(519, 212);
             this.listBoxSearchedCustomers.TabIndex = 2;
             // 
             // btnShowCustomerInformation
             // 
-            this.btnShowCustomerInformation.Location = new System.Drawing.Point(225, 325);
+            this.btnShowCustomerInformation.Location = new System.Drawing.Point(215, 306);
             this.btnShowCustomerInformation.Name = "btnShowCustomerInformation";
             this.btnShowCustomerInformation.Size = new System.Drawing.Size(157, 36);
             this.btnShowCustomerInformation.TabIndex = 3;
@@ -78,7 +77,7 @@
             // 
             // btnAddCustomer
             // 
-            this.btnAddCustomer.Location = new System.Drawing.Point(12, 66);
+            this.btnAddCustomer.Location = new System.Drawing.Point(215, 363);
             this.btnAddCustomer.Name = "btnAddCustomer";
             this.btnAddCustomer.Size = new System.Drawing.Size(160, 36);
             this.btnAddCustomer.TabIndex = 4;
@@ -88,7 +87,7 @@
             // 
             // btnBookARoom
             // 
-            this.btnBookARoom.Location = new System.Drawing.Point(573, 325);
+            this.btnBookARoom.Location = new System.Drawing.Point(573, 306);
             this.btnBookARoom.Name = "btnBookARoom";
             this.btnBookARoom.Size = new System.Drawing.Size(161, 36);
             this.btnBookARoom.TabIndex = 5;
@@ -96,19 +95,9 @@
             this.btnBookARoom.UseVisualStyleBackColor = true;
             this.btnBookARoom.Click += new System.EventHandler(this.btnBookARoom_Click);
             // 
-            // btnCheckPayments
-            // 
-            this.btnCheckPayments.Location = new System.Drawing.Point(0, 401);
-            this.btnCheckPayments.Name = "btnCheckPayments";
-            this.btnCheckPayments.Size = new System.Drawing.Size(160, 37);
-            this.btnCheckPayments.TabIndex = 6;
-            this.btnCheckPayments.Text = "Check Payments";
-            this.btnCheckPayments.UseVisualStyleBackColor = true;
-            this.btnCheckPayments.Click += new System.EventHandler(this.btnCheckPayments_Click);
-            // 
             // btnHandleCustomers
             // 
-            this.btnHandleCustomers.Location = new System.Drawing.Point(12, 122);
+            this.btnHandleCustomers.Location = new System.Drawing.Point(389, 364);
             this.btnHandleCustomers.Name = "btnHandleCustomers";
             this.btnHandleCustomers.Size = new System.Drawing.Size(160, 37);
             this.btnHandleCustomers.TabIndex = 7;
@@ -117,9 +106,9 @@
             // 
             // btnPay
             // 
-            this.btnPay.Location = new System.Drawing.Point(0, 342);
+            this.btnPay.Location = new System.Drawing.Point(389, 306);
             this.btnPay.Name = "btnPay";
-            this.btnPay.Size = new System.Drawing.Size(160, 39);
+            this.btnPay.Size = new System.Drawing.Size(160, 36);
             this.btnPay.TabIndex = 8;
             this.btnPay.Text = "Customer Payed";
             this.btnPay.UseVisualStyleBackColor = true;
@@ -127,7 +116,7 @@
             // 
             // btnDeleteCustomer
             // 
-            this.btnDeleteCustomer.Location = new System.Drawing.Point(12, 194);
+            this.btnDeleteCustomer.Location = new System.Drawing.Point(573, 359);
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
             this.btnDeleteCustomer.Size = new System.Drawing.Size(160, 40);
             this.btnDeleteCustomer.TabIndex = 9;
@@ -142,7 +131,6 @@
             this.Controls.Add(this.btnDeleteCustomer);
             this.Controls.Add(this.btnPay);
             this.Controls.Add(this.btnHandleCustomers);
-            this.Controls.Add(this.btnCheckPayments);
             this.Controls.Add(this.btnBookARoom);
             this.Controls.Add(this.btnAddCustomer);
             this.Controls.Add(this.btnShowCustomerInformation);
@@ -164,7 +152,6 @@
         private System.Windows.Forms.Button btnShowCustomerInformation;
         private System.Windows.Forms.Button btnAddCustomer;
         private System.Windows.Forms.Button btnBookARoom;
-        private System.Windows.Forms.Button btnCheckPayments;
         private System.Windows.Forms.Button btnHandleCustomers;
         private System.Windows.Forms.Button btnPay;
         private System.Windows.Forms.Button btnDeleteCustomer;

@@ -19,9 +19,14 @@ namespace inlam2_1._0
         }
         public int GetSelectedCustomerID()
         {
+            var selectedItem = listBoxSearchedCustomers.SelectedItem.ToString();
+            var strArr = selectedItem.Split(' ');
+            int selectedCustomerID = Convert.ToInt32(strArr[0]);
+
+
             using (HotelDBContext context = new HotelDBContext())
             {
-                Customer customer = context.Customers.FirstOrDefault(c => c.LastName == listBoxSearchedCustomers.SelectedItem.ToString());
+                Customer customer = context.Customers.FirstOrDefault(c => c.CustomerID == selectedCustomerID);
                 return customer.CustomerID;
             }
             
@@ -102,10 +107,7 @@ namespace inlam2_1._0
                 subform.ShowDialog();
             }
         }
-        public string selectedLastNameInListBox()
-        {
-            return listBoxSearchedCustomers.Text;
-        }
+        
 
 
         private void btnSearchCustomers_Click(object sender, EventArgs e)
@@ -118,7 +120,7 @@ namespace inlam2_1._0
             }
             foreach (var customer in searchedCustomer)
             {
-                listBoxSearchedCustomers.Items.Add($"{customer.LastName}");
+                listBoxSearchedCustomers.Items.Add($"{customer.CustomerID} {customer.FirstName} {customer.LastName}");
             }
 
         }      
@@ -142,11 +144,6 @@ namespace inlam2_1._0
         private void btnPay_Click(object sender, EventArgs e)
         {
             UpdatePaymentCustomer();
-        }
-
-        private void btnCheckPayments_Click(object sender, EventArgs e)
-        {
-            RemoveAllBookingsWichIsntPayedIn10Days();
         }
     }
 }
