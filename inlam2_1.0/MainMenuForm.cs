@@ -15,91 +15,16 @@ namespace inlam2_1._0
         public MainMenuForm()
         {
             InitializeComponent();
-            RemoveAllBookingsWichIsntPayedIn10Days();
+            var dbm = new DBmanager();
+            dbm.RemoveAllBookingsWichIsntPayedIn10Days();
         }
         public int GetSelectedCustomerID()
         {
             var selectedItem = listBoxSearchedCustomers.SelectedItem.ToString();
             var strArr = selectedItem.Split(' ');
-            int selectedCustomerID = Convert.ToInt32(strArr[0]);
-
-
-            using (HotelDBContext context = new HotelDBContext())
-            {
-                Customer customer = context.Customers.FirstOrDefault(c => c.CustomerID == selectedCustomerID);
-                return customer.CustomerID;
-            }
-            
-        }
-        public void UpdatePaymentCustomer()
-        {
-            var customerID = GetSelectedCustomerID();
-            using (HotelDBContext context = new HotelDBContext())
-            {
-                var reservation = context.Reservations.Where(r => r.CustomerID == customerID).ToList();
-                
-                foreach (var reserv in reservation)
-                {
-                    var payment = context.Payments.FirstOrDefault(r => r.PaymentID == reserv.PaymentID);
-                    payment.Paid = "Yes";
-                }
-                
-                context.SaveChanges();
-            }
-            MessageBox.Show("Customers reservation is Payed");
-        }
-        public void RemoveAllBookingsWichIsntPayedIn10Days()
-        {
-            var reservationToDelete = new Reservation();
-            var paymentInfoToDelete = new Payment();
-            var reservationRoomsToDelete = new ReservationRoom();
-            var customerToDelete = new Customer();
-            var anwser = "Yes";
-            using (HotelDBContext context = new HotelDBContext())              
-            {
-                
-                var payment = context.Payments.Where(r => r.LastDayToPay < DateTime.Now).ToList();
-                foreach (var payed in payment)
-                {
-                    if(payed.Paid == "No")
-                    {
-                        try
-                        {                          
-                            reservationToDelete = context.Reservations.SingleOrDefault(r => r.PaymentID == payed.PaymentID);
-                            reservationRoomsToDelete = context.ReservationRooms.SingleOrDefault(r => r.ReservationRoomsID == reservationToDelete.ReservationRoomsID);
-                            customerToDelete = context.Customers.SingleOrDefault(r => r.CustomerID == reservationToDelete.CustomerID);
-
-                            paymentInfoToDelete = payed;
-                            anwser = "No";
-
-                            
-                            
-                            context.Entry(reservationToDelete).State = System.Data.Entity.EntityState.Deleted;
-                            context.Entry(reservationRoomsToDelete).State = System.Data.Entity.EntityState.Deleted;
-                            context.Entry(paymentInfoToDelete).State = System.Data.Entity.EntityState.Deleted;
-                            context.Entry(reservationToDelete).State = System.Data.Entity.EntityState.Deleted;
-                            context.SaveChanges();                          
-                        }                       
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("An error occurred: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        finally
-                        {
-                        }
-
-                    }
-                }
-                
-                if(anwser == "No")
-                {
-                    MessageBox.Show("Customers who haven't payed for 10 days since there booking have been removed");
-                }
-                
-            }
-            
-        }
-
+            var selectedCustomerID = Convert.ToInt32(strArr[0]);
+            return selectedCustomerID;
+        }       
         private void btnAddCustomer_Click(object sender, EventArgs e)
         {
             using (var subform = new AddNewCustomer(this))
@@ -107,17 +32,12 @@ namespace inlam2_1._0
                 subform.ShowDialog();
             }
         }
-        
-
-
         private void btnSearchCustomers_Click(object sender, EventArgs e)
         {
             listBoxSearchedCustomers.Items.Clear();
-            List<Customer> searchedCustomer = new List<Customer>();
-            using (HotelDBContext context = new HotelDBContext())
-            {
-                searchedCustomer = context.Customers.Where(c => c.LastName.StartsWith(tBoxSearchCustomers.Text)).ToList();           
-            }
+            var dbm = new DBmanager();
+            var searchedCustomer = dbm.SearchForCustomer(tBoxSearchCustomers.Text); 
+            
             foreach (var customer in searchedCustomer)
             {
                 listBoxSearchedCustomers.Items.Add($"{customer.CustomerID} {customer.FirstName} {customer.LastName}");
@@ -143,14 +63,31 @@ namespace inlam2_1._0
 
         private void btnPay_Click(object sender, EventArgs e)
         {
-            UpdatePaymentCustomer();
+            var customerID = GetSelectedCustomerID();
+            var dbm = new DBmanager();
+            dbm.UpdatePaymentCustomer(customerID);
         }
 
         private void btnDeleteCustomer_Click(object sender, EventArgs e)
         {
             var customerID = GetSelectedCustomerID();
-            var cdbm = new CustomerDBmanager();
+            var cdbm = new DBmanager();
             cdbm.DeleteCustomer(customerID);
+        }
+        private void btnHandleReservations_Click_1(object sender, EventArgs e)
+        {
+            using (var subform = new HandleCustomerForm(this))
+            {
+                subform.ShowDialog();
+            }
+        }
+
+        private void btnUpdateCustomer_Click(object sender, EventArgs e)
+        {
+            using (var subform = new UpdateCustomers(this))
+            {
+                subform.ShowDialog();
+            }
         }
     }
 }

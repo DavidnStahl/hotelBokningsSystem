@@ -23,10 +23,9 @@ namespace inlam2_1._0
         public void FillIformation()
         {
             var selectedcustomerID = mainForm.GetSelectedCustomerID();
-            var cdbm = new CustomerDBmanager();
+            var cdbm = new DBmanager();
             var selectedCustomer = cdbm.GetCustomerInformation(selectedcustomerID);
 
-            tBoxCustomerID.Text = selectedCustomer.CustomerID.ToString();
             tBoxFirstName.Text = selectedCustomer.FirstName.ToString();
             tBoxLastName.Text = selectedCustomer.LastName.ToString();
             tBoxAddress.Text = selectedCustomer.Address.ToString();
